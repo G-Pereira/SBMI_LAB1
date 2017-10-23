@@ -22,7 +22,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/gpereira/.platformio/packages/framework-arduinoavr/cores/arduino"
   "/home/gpereira/.platformio/packages/framework-arduinoavr/variants/standard"
-  "/home/gpereira/Documents/FEUP/3/SBMI/lab1/src"
+  "../src"
   "/home/gpereira/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/EEPROM/src"
   "/home/gpereira/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/HID/src"
   "/home/gpereira/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SPI/src"

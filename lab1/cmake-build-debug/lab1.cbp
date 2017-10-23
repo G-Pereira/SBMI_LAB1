@@ -42,7 +42,7 @@
 					<Add option="-D__AVR_ATmega328P__"/>
 					<Add directory="/home/gpereira/.platformio/packages/framework-arduinoavr/cores/arduino"/>
 					<Add directory="/home/gpereira/.platformio/packages/framework-arduinoavr/variants/standard"/>
-					<Add directory="/home/gpereira/Documents/FEUP/3/SBMI/lab1/src"/>
+					<Add directory="/home/gpereira/Documents/FEUP/3/SBMI/Works/LAB1/lab1/src"/>
 					<Add directory="/home/gpereira/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/EEPROM/src"/>
 					<Add directory="/home/gpereira/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/HID/src"/>
 					<Add directory="/home/gpereira/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SPI/src"/>
@@ -103,7 +103,7 @@
 					<Add option="-D__AVR_ATmega328P__"/>
 					<Add directory="/home/gpereira/.platformio/packages/framework-arduinoavr/cores/arduino"/>
 					<Add directory="/home/gpereira/.platformio/packages/framework-arduinoavr/variants/standard"/>
-					<Add directory="/home/gpereira/Documents/FEUP/3/SBMI/lab1/src"/>
+					<Add directory="/home/gpereira/Documents/FEUP/3/SBMI/Works/LAB1/lab1/src"/>
 					<Add directory="/home/gpereira/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/EEPROM/src"/>
 					<Add directory="/home/gpereira/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/HID/src"/>
 					<Add directory="/home/gpereira/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SPI/src"/>
