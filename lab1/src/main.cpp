@@ -32,7 +32,7 @@ ISR(INT0_vect) {
         if (((stateNormal == 4 || stateNormal == 5) || (stateNormal == 1 || stateNormal == 2)) && stateEmergency == 0) {
             stateEmergency = 1;
             timerCount = 0; // Start counting 2 seconds for the yellow light
-        } else if (((stateNormal == 2) || stateNormal == 5) &&
+        } else if (((stateNormal == 0) || stateNormal == 3) &&
                    stateEmergency == 0) {
             stateEmergency = 2;
             timerCount = 0;
