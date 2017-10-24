@@ -30,7 +30,7 @@ ISR(INT0_vect) {
         }
 
         //STATE MACHINE
-        if (((4 == stateNormal || 5 == stateNormal == 5) || (1 == stateNormal || 2 == stateNormal)) &&
+        if (((4 == stateNormal || 5 == stateNormal) || (1 == stateNormal || 2 == stateNormal)) &&
             0 == stateEmergency) {
             stateEmergency = 1;
             timerCount = 0; // Start counting 2 seconds for the yellow light
@@ -112,7 +112,7 @@ int main() {
         if (0 == stateNormal && 2 <= timerCount) {
             stateNormal = 1;
             timerCount = 0; // Reset counter
-        } else if (1 == stateNormal && 15 <= timerCount) {
+        } else if (1 == stateNormal && 10 <= timerCount) {
             stateNormal = 2;
             timerCount = 0;
         } else if (2 == stateNormal && 2 <= timerCount) {
