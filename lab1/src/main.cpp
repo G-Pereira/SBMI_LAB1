@@ -17,35 +17,37 @@
 
 char stateNormal = 0;
 float timerCount = 0;
+char stateEmergency = 0;
 
 ISR(INT0_vect) {
-    char stateEmergency = 0;
+    stateEmergency = 0;
     timerCount = 0;
     TCNT1 = 0; // Reset timer value
     while (1) {
-        if (TCNT1 >= 16000) {
-            timerCount += 0.01;
+        if (16000 <= TCNT1) {
+            timerCount += 0.001;
             TCNT1 = 0; // Reset timer value
         }
 
         //STATE MACHINE
-        if (((stateNormal == 4 || stateNormal == 5) || (stateNormal == 1 || stateNormal == 2)) && stateEmergency == 0) {
+        if (((4 == stateNormal || 5 == stateNormal == 5) || (1 == stateNormal || 2 == stateNormal)) &&
+            0 == stateEmergency) {
             stateEmergency = 1;
             timerCount = 0; // Start counting 2 seconds for the yellow light
-        } else if (((stateNormal == 0) || stateNormal == 3) &&
-                   stateEmergency == 0) {
+        } else if (((0 == stateNormal) || 3 == stateNormal) &&
+                   0 == stateEmergency) {
             stateEmergency = 2;
             timerCount = 0;
-        } else if (stateEmergency == 1 && timerCount >= 2) {
+        } else if (1 == stateEmergency && 2 <= timerCount) {
             stateEmergency = 2;
             timerCount = 0;
-        } else if (stateEmergency == 2 && timerCount >= 15) {
+        } else if (2 == stateEmergency && 15 <= timerCount) {
             break;
         }
 
         //set output values
-        if (stateEmergency == 1) {
-            if (stateNormal == 4 || stateNormal == 5) {
+        if (1 == stateEmergency) {
+            if (4 == stateNormal || 5 == stateNormal) {
                 PORTB &= ~(1 << EO_GREEN);
                 PORTB &= ~(1 << NS_GREEN);
                 PORTB &= ~(1 << NS_YELLOW);
@@ -60,7 +62,7 @@ ISR(INT0_vect) {
                 PORTB |= (1 << NS_YELLOW);
                 PORTB |= (1 << EO_RED);
             }
-        } else if (stateEmergency == 2) {
+        } else if (2 == stateEmergency) {
             PORTB &= ~(1 << EO_YELLOW);
             PORTB &= ~(1 << EO_GREEN);
             PORTB &= ~(1 << NS_YELLOW);
@@ -71,7 +73,7 @@ ISR(INT0_vect) {
     }
     timerCount = 0;
     // Exit states
-    if (stateNormal == 4 || stateNormal == 5 || stateNormal == 0)
+    if (4 == stateNormal || 5 == stateNormal || 0 == stateNormal)
         stateNormal = 4;
     else stateNormal = 1;
     TCNT1 = 0; // Reset timer value
@@ -101,28 +103,28 @@ int main() {
     while (1) {
         // Count how many times the timer reaches 16000 cicles and count 0.001s
         // since the microcontroller has a 16MHz timer
-        if (TCNT1 >= 16000) {
-            timerCount += 0.01;
+        if (16000 <= TCNT1) {
+            timerCount += 0.001;
             TCNT1 = 0; // Reset timer value
         }
 
         // STATE MACHINE
-        if (stateNormal == 0 && timerCount >= 2) {
+        if (0 == stateNormal && 2 <= timerCount) {
             stateNormal = 1;
             timerCount = 0; // Reset counter
-        } else if (stateNormal == 1 && timerCount >= 15) {
+        } else if (1 == stateNormal && 15 <= timerCount) {
             stateNormal = 2;
             timerCount = 0;
-        } else if (stateNormal == 2 && timerCount >= 2) {
+        } else if (2 == stateNormal && 2 <= timerCount) {
             stateNormal = 3;
             timerCount = 0;
-        } else if (stateNormal == 3 && timerCount >= 2) {
+        } else if (3 == stateNormal && 2 <= timerCount) {
             stateNormal = 4;
             timerCount = 0;
-        } else if (stateNormal == 4 && timerCount >= 15) {
+        } else if (4 == stateNormal && 15 <= timerCount) {
             stateNormal = 5;
             timerCount = 0;
-        } else if (stateNormal == 5 && timerCount >= 2) {
+        } else if (5 == stateNormal && 2 <= timerCount) {
             stateNormal = 0;
             timerCount = 0;
         }
