@@ -1,5 +1,5 @@
 /*
- * lab1.c
+ * lab1.cpp
  *
  *  Created on: Oct 2, 2017
  *      Author: Gonçalo Pereira, Ricardo Silva
@@ -83,7 +83,7 @@ int main() {
     // Set up timer
     TCCR1B |= (1 << CS10);
 
-    // Semafores
+    // Semaphores
     DDRB |= (1 << NS_GREEN); // EO green
     DDRB |= (1 << NS_YELLOW); // EO yellow
     DDRB |= (1 << NS_RED); // EO red
